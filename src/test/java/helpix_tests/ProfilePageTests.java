@@ -12,11 +12,12 @@ public class ProfilePageTests extends TestBase {
     @BeforeMethod
     public void precondition() {
         new HomePage(driver).getJoinLink();
-        new JoinPage(driver).enterUserData(UserData.getEmail(),UserData.getPassword());
+        new JoinPage(driver).enterUserData(UserData.getEmail(), UserData.getPassword());
         new HomePage(driver).getMyProfileNavMenu();
     }
+
     @Test
     public void myProfileIsOpenedPositiveTest() {
-       new ProfilePage(driver).verifyMyProfileName("Kitty Purrwhiskers");
+        new ProfilePage(driver).verifyMyProfileName("Kitty Purrwhiskers");
     }
 }

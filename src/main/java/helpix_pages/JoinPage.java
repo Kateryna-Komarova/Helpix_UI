@@ -3,15 +3,16 @@ package helpix_pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 
 public class JoinPage extends BasePage {
     public JoinPage(WebDriver driver) {
         super(driver);
     }
 
-    @FindBy(xpath = "//body/div[1]/div[1]/div[1]")
+    @FindBy(xpath = "//button[@type='submit']")
     WebElement joinWithGoogle;
-    @FindBy(xpath = "//input[@id='identifierId']")
+    @FindBy(css = "#identifierId")
     WebElement emailField;
     @FindBy(xpath = "//*/text()[normalize-space(.)='Next']/parent::*")
     WebElement nextButton;
@@ -35,9 +36,19 @@ public class JoinPage extends BasePage {
 
     @FindBy(xpath = "//img[@alt='User navbar avatar']")
     WebElement avatarIcon;
-    public boolean verifyProfileIcon() {
-        return isElementPresent(avatarIcon);
+
+    public JoinPage verifyProfileIconIsDisplayed() {
+        Assert.assertTrue(avatarIcon.isDisplayed(), "Login failed: profile icon not displayed");
+        return this;
     }
 
 
+    @FindBy(xpath = "//button[@type='button']")
+    WebElement logoutButton;
+
+    public JoinPage logOutUser() {
+        click(avatarIcon);
+        click(logoutButton);
+        return this;
+    }
 }

@@ -1,4 +1,9 @@
 package helpix_pages;
 
-public class NewListingHeaderPage {
+import org.openqa.selenium.WebDriver;
+
+public class NewListingHeaderPage extends BasePage {
+    public NewListingHeaderPage(WebDriver driver) {
+        super(driver);
+    }
 }

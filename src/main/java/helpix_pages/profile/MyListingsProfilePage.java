@@ -6,17 +6,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
-import org.testng.annotations.Test;
 
-public class MyListingsPage extends BasePage {
-    public MyListingsPage(WebDriver driver) {
+public class MyListingsProfilePage extends BasePage {
+    public MyListingsProfilePage(WebDriver driver) {
         super(driver);
     }
 
     @FindBy(css = "div.flex.flex-col.items-start.justify-between")
     WebElement profileInformation;
 
-    public MyListingsPage verifyMyListingName(String text) {
+    public MyListingsProfilePage verifyMyListingName(String text) {
         Assert.assertTrue(shouldHaveText(profileInformation, text, 5));
         return this;
     }
@@ -26,11 +25,12 @@ public class MyListingsPage extends BasePage {
     @FindBy(xpath = "//*/text()[normalize-space(.)='Confirm']/parent::*")
     WebElement confirmButton;
 
-    public MyListingsPage deactivateMyListing() {
+    public MyListingsProfilePage deactivateMyListing() {
         click(deactivateButton);
         click(confirmButton);
         return this;
     }
+
     public void verifyDeactivationSuccessMessage() {
         WebElement successMessage = driver.findElement(By.className("success-message"));
         String actualMessage = successMessage.getText();
@@ -44,7 +44,7 @@ public class MyListingsPage extends BasePage {
     @FindBy(xpath = "/html/body/main/div/ul/li[2]/div/div[2]/div[2]/div[2]/div/dialog/div/div/button[2]")
     WebElement confirmDeleteButton;
 
-    public MyListingsPage deleteMyListing() {
+    public MyListingsProfilePage deleteMyListing() {
         click(deleteButton);
         click(confirmDeleteButton);
         return this;

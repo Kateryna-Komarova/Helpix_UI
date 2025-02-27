@@ -2,12 +2,9 @@ package helpix_pages.profileNavigation;
 
 import helpix_pages.BasePage;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.time.Duration;
@@ -44,5 +41,33 @@ public class HelpAndSupportPage extends BasePage {
         click(submitButton);
         return this;
     }
+
+    @FindBy(xpath = "//div[contains(text(),'Incorrect email format')]")
+    WebElement emailError;
+
+    public HelpAndSupportPage verifyEmailErrorMessage() {
+        Assert.assertTrue(shouldHaveText(emailError, "Incorrect email format", 5),
+                "Email validation error did not appear!");
+        return this;
+
     }
+
+    public HelpAndSupportPage sendingHelpMessageWithInvalidCharacterCount() {
+        type(emailField, "kitty.purrwhiskers@gmail.com");
+        type(messageField, "I need");
+        click(submitButton);
+        return this;
+
+    }
+
+    @FindBy(xpath = "//div[contains(text(),'Message must be at least 10 characters long')]")
+    WebElement characterCountErrorMessage;
+
+    public HelpAndSupportPage verifyErrorCountMessage() {
+        Assert.assertTrue(shouldHaveText(characterCountErrorMessage, "Message must be at least 10 characters long", 5),
+                "Email validation error did not appear!");
+        return this;
+
+    }
+}
 

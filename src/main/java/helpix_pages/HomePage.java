@@ -5,6 +5,7 @@ import helpix_pages.profileNavigation.ProfilePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 
 public class HomePage extends BasePage {
     public HomePage(WebDriver driver) {
@@ -40,9 +41,15 @@ public class HomePage extends BasePage {
 
     @FindBy(xpath = "//a[contains(text(),'Help & Support')]")
     WebElement helpAndSupportButton;
+
     public HelpAndSupportPage getHelpAndSupportLink() {
         click(profileNav);
         click(helpAndSupportButton);
         return new HelpAndSupportPage(driver);
+    }
+
+    public HomePage verifyHomePage() {
+        Assert.assertTrue(new HomePage(driver).isHomeComponentPresent(), "Home page is not present" + driver.getCurrentUrl());
+        return this;
     }
 }

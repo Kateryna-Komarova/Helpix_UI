@@ -75,10 +75,12 @@ public class BasePage {
             System.out.println(url + " - " + e.getMessage() + "Error occurred");
         }
     }
+
     public void selectDropdownOption(WebElement dropdownElement, String optionText) {
         Select select = new Select(dropdownElement);
         select.selectByVisibleText(optionText);
     }
+
     public WebElement waitForVisibility(By locator, Duration timeout) {
         WebDriverWait wait = new WebDriverWait(driver, timeout);
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));

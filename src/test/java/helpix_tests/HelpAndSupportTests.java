@@ -22,7 +22,12 @@ public class HelpAndSupportTests extends TestBase {
     }
 
     @Test
-    public void createHelpMessageWithInvalidEmailNegativeTest(){
-        new HelpAndSupportPage(driver).createHelpMessageWithInvalidEmail();
+    public void createHelpMessageWithInvalidEmailNegativeTest() {
+        new HelpAndSupportPage(driver).createHelpMessageWithInvalidEmail().verifyEmailErrorMessage();
+    }
+
+    @Test
+    public void sendingHelpMessageWithInvalidCharacterCount() {
+        new HelpAndSupportPage(driver).sendingHelpMessageWithInvalidCharacterCount().verifyErrorCountMessage();
     }
 }
