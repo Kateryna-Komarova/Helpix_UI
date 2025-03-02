@@ -13,10 +13,6 @@ target/
 ### Log files ###
 *.log
 
-### Configuration files ###
-application.properties
-
-
 ### Test data ###
 test_logs/
 
