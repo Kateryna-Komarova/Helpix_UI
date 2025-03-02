@@ -31,7 +31,7 @@ public class ProfilePage extends BasePage {
 
     }
 
-    @FindBy(xpath = "//*/text()[normalize-space(.)='New Listings']/parent::*")
+    @FindBy(xpath = "//body/main[1]/div[1]/div[3]/a[1]/div[1]")
     WebElement newListingButton;
 
     public NewListingsProfilePage getNewListingLink() {

@@ -6,7 +6,6 @@ import helpix_pages.JoinPage;
 import helpix_pages.profileNavigation.ProfilePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.devtools.v129.performancetimeline.PerformanceTimeline;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;

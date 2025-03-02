@@ -12,7 +12,7 @@ public class JoinPage extends BasePage {
 
     @FindBy(xpath = "//button[@type='submit']")
     WebElement joinWithGoogle;
-    @FindBy(css = "#identifierId")
+    @FindBy(xpath = "//*[@id=\"identifierId\"]")
     WebElement emailField;
     @FindBy(xpath = "//*/text()[normalize-space(.)='Next']/parent::*")
     WebElement nextButton;

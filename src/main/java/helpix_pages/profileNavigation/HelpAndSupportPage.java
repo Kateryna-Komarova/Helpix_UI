@@ -46,7 +46,7 @@ public class HelpAndSupportPage extends BasePage {
     WebElement emailError;
 
     public HelpAndSupportPage verifyEmailErrorMessage() {
-        Assert.assertTrue(shouldHaveText(emailError, "Incorrect email format", 5),
+        Assert.assertTrue(shouldHaveText(emailError, "Incorrect email format", 10),
                 "Email validation error did not appear!");
         return this;
 

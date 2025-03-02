@@ -15,7 +15,7 @@ target/
 
 ### Configuration files ###
 application.properties
-logback.xml
+
 
 ### Test data ###
 test_logs/

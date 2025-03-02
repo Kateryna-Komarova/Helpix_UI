@@ -52,4 +52,26 @@ public class HomePage extends BasePage {
         Assert.assertTrue(new HomePage(driver).isHomeComponentPresent(), "Home page is not present" + driver.getCurrentUrl());
         return this;
     }
+
+    @FindBy(xpath = "(.//*[normalize-space(text()) and normalize-space(.)='Listings'])[1]/following::*[name()='svg'][1]")
+    WebElement listViewButton;
+    @FindBy(xpath = "(.//*[normalize-space(text()) and normalize-space(.)='Listings'])[1]/following::div[4]")
+    WebElement listingGrooming;
+
+    public ListingsPage openListingInListView() {
+        click(listViewButton);
+        click(listingGrooming);
+        return new ListingsPage(driver);
+    }
+
+    @FindBy(xpath = "//*/text()[normalize-space(.)='DOGS grooming']/parent::*")
+    WebElement gridButton;
+    @FindBy(xpath = "//body[1]/main[1]/div[1]/div[1]/div[2]/div[1]")
+    WebElement groomingListing;
+
+    public ListingsPage openListingInGridView() {
+        click(gridButton);
+        click(groomingListing);
+        return new ListingsPage(driver);
+    }
 }

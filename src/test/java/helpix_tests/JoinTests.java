@@ -21,9 +21,4 @@ public class JoinTests extends TestBase {
         joinPage.enterUserData(UserData.getEmail(), UserData.getPassword()).verifyProfileIconIsDisplayed();
 
     }
-
-    @AfterMethod
-    public void logOutUserPositiveTest() {
-        new JoinPage(driver).logOutUser();
-    }
 }
