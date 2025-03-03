@@ -6,6 +6,7 @@
             <class name="helpix_tests.JoinTests"/>
             <class name="helpix_tests.HomePageTests"/>
             <class name="helpix_tests.HelpAndSupportTests"/>
+            <class name="helpix_tests.ProfilePageTests"/>
         </classes>
     </test>
 </suite>
